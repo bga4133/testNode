@@ -30,9 +30,9 @@ inquirer
       default: "red"
     },
     {
-      name: "NAME",
-      message: "NEXT QUESTION",
-      default: "red"
+      name: "N",
+      message: "Want u new urls?",
+      default: "https://github.com/"
     }
   ])
   .then(answers => {
