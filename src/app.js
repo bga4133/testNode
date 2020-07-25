@@ -1,9 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const axios = require("axios");
+const getData = require("./functions/getData");
 const inquirer = require("inquirer");
-const urlRegex = require("url-regex");
+
 //settings
 app.set("port", 4000);
 
@@ -11,27 +11,11 @@ app.set("port", 4000);
 app.use(cors());
 app.use(express.json());
 
-getData = async URL => {
-  try {
-    const res = await axios.get(URL);
-    const resp = new Object(res);
-    const data = Object.entries(resp);
-    const newData = data.join().match(urlRegex());
-    console.log(newData);
-  } catch (error) {
-    console.log(error);
-  }
-};
 inquirer
   .prompt([
     {
       name: "URL",
       message: "Write the url of u want",
-      default: "red"
-    },
-    {
-      name: "N",
-      message: "Want u new urls?",
       default: "https://github.com/"
     }
   ])
@@ -45,6 +29,5 @@ inquirer
       console.log("write a good url plis");
     }
   });
-
 //export app
 module.exports = app;
