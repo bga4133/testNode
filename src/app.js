@@ -1,16 +1,10 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
 const getData = require("./functions/getData");
 const inquirer = require("inquirer");
-
 //settings
 app.set("port", 4000);
-
 //middlewares
-app.use(cors());
-app.use(express.json());
-
 inquirer
   .prompt([
     {
